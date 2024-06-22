@@ -1,11 +1,9 @@
-# coffee_machine.py
-
 import streamlit as st
 from coffee_machine_data import MENU, RESOURCES, COIN_VALUES
 
 # Load CSS file
-def load_css(styles.css):
-    with open(styles.css) as f:
+def load_css(file_name):
+    with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 resources = RESOURCES.copy()
