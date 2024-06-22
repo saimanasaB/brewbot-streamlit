@@ -19,7 +19,7 @@ def process_coins():
     st.write("Please insert coins.")
     total = 0
     for coin, value in COIN_VALUES.items():
-        total += st.number_input(f"How many {coin}?", min_value=0) * value
+        total += st.number_input(f"How many {coin}?", min_value=0, step=1) * value
     return total
 
 def is_transaction_successful(money_received, drink_cost):
@@ -61,8 +61,6 @@ def coffee_machine():
             payment = process_coins()
             if is_transaction_successful(payment, drink["cost"]):
                 make_coffee(choice, drink["ingredients"])
-    else:
-        st.write("Invalid choice, please choose again.")
 
 if __name__ == "__main__":
     coffee_machine()
