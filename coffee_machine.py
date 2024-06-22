@@ -3,6 +3,11 @@
 import streamlit as st
 from coffee_machine_data import MENU, RESOURCES, COIN_VALUES
 
+# Load CSS file
+def load_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 resources = RESOURCES.copy()
 money = 0.0
 
@@ -43,6 +48,9 @@ def make_coffee(drink_name, order_ingredients):
 def coffee_machine():
     """Main function to run the coffee machine."""
     global money
+
+    # Load the custom CSS
+    load_css('styles.css')
 
     st.title("Coffee Machine")
     
